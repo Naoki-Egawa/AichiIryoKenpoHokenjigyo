@@ -10,25 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace AichiIryoKenpoHokenjigyo
 {
     /// <summary>
-    /// MainWindow.xaml の相互作用ロジック
+    /// CompanySetting.xaml の相互作用ロジック
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class CompanySetting : Window
     {
-        public MainWindow()
+        public CompanySetting()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            var f = new CompanySetting();
-            f.ShowDialog();
         }
     }
 }
