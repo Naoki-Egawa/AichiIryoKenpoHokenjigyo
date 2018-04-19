@@ -5,9 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AichiIryoKenpoHokenjigyo"
         mc:Ignorable="d"
-        Title="CompanySetting" Height="450" Width="800">
-    
+        Title="CompanySetting" Height="503" Width="327" Background="#FFF7F7F7">
+
     <Grid>
-        
+        <Label Content="事業所記号（健康保険）" HorizontalAlignment="Left" VerticalAlignment="Top" Width="148" Height="26" Foreground="#FF919191" Margin="58,56,0,0"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="204" Margin="58,82,0,0"/>
+        <Label Content="事業所名称" HorizontalAlignment="Left" VerticalAlignment="Top" Width="148" Height="26" Foreground="#FF919191" Margin="58,115,0,0"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="204" Margin="58,141,0,0"/>
+        <Label Content="事業主氏名（漢字）" HorizontalAlignment="Left" VerticalAlignment="Top" Width="148" Height="26" Foreground="#FF919191" Margin="58,171,0,0"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="204" Margin="58,197,0,0"/>
+        <Label Content="郵便番号" HorizontalAlignment="Left" VerticalAlignment="Top" Width="148" Height="26" Foreground="#FF919191" Margin="58,226,0,0"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="204" Margin="58,252,0,0"/>
+        <Label Content="所在地" HorizontalAlignment="Left" VerticalAlignment="Top" Width="148" Height="26" Foreground="#FF919191" Margin="58,284,0,0"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="204" Margin="58,310,0,0"/>
+        <Label Content="電話番号" HorizontalAlignment="Left" VerticalAlignment="Top" Width="148" Height="26" Foreground="#FF919191" Margin="58,340,0,0"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="204" Margin="58,366,0,0"/>
+
     </Grid>
 </Window>

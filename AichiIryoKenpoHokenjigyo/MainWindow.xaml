@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:AichiIryoKenpoHokenjigyo"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
-        Style="{Binding Source={StaticResource DefaultWindowStyle}}">
+        >
     <Grid>
         <Button Click="Button_Click" Content="事業所設定" HorizontalAlignment="Left" Margin="561,112,0,0" VerticalAlignment="Top" Width="163" Height="52"/>
 
