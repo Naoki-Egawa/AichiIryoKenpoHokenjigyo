@@ -5,10 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AichiIryoKenpoHokenjigyo"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
+        Title="MainWindow" Height="125" Width="509"
+        Loaded="Window_Loaded"  
         >
     <Grid>
-        <Button Click="Button_Click" Content="事業所設定" HorizontalAlignment="Left" Margin="561,112,0,0" VerticalAlignment="Top" Width="163" Height="52"/>
+        <Button Click="Button_Click" Content="事業所設定" HorizontalAlignment="Left" Margin="22,22,0,0" VerticalAlignment="Top" Width="163" Height="52"/>
 
     </Grid>
 </Window>
