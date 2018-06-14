@@ -12,7 +12,7 @@ namespace AichiIryoKenpoHokenjigyo.Model
     class Kiisdbcontext : DbContext
     {
         public Kiisdbcontext()
-            : base("name=KiisConectionString")
+            : base("name=kiisConnectionString")
         {
         }
 

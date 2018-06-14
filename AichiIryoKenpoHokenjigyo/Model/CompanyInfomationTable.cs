@@ -12,6 +12,7 @@ namespace AichiIryoKenpoHokenjigyo.Model
         public string CompanyName { get; set; }
         public string JigyonusiName { get; set; }
         public string PostalCode { get; set; }
+        public string Address { get; set; }
 
     }
 }

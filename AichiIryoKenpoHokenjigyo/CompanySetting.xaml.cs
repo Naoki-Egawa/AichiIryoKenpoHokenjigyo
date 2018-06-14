@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using AichiIryoKenpoHokenjigyo.Model;
 
 namespace AichiIryoKenpoHokenjigyo
 {
@@ -26,7 +27,32 @@ namespace AichiIryoKenpoHokenjigyo
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Test");
+
+            try
+            {
+
+                var db = new Kiisdbcontext();
+                var q = db.CompanyInfomationTable;
+
+                CompanyInfomationTable t = new CompanyInfomationTable()
+                {
+                    Kigou = 1,
+                    CompanyName = "愛知県医療健康保険組合"
+                };
+
+                q.Add(t);
+
+                db.SaveChanges();
+
+                MessageBox.Show("Test");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
+
     }
+
 }
