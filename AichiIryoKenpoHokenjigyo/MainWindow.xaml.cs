@@ -112,6 +112,7 @@ namespace AichiIryoKenpoHokenjigyo
 
                 //    MessageBox.Show(item.ItemArray[5].ToString());
                 //}
+                
                 MessageBox.Show(a.ItemArray[5].ToString());
             }
             catch (InvalidOperationException ex)

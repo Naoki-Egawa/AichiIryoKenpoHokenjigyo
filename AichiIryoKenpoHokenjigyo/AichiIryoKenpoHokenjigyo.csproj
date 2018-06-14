@@ -118,6 +118,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Class\TekiyoMasterCSVsoeji.cs" />
     <Compile Include="CompanySetting.xaml.cs">
       <DependentUpon>CompanySetting.xaml</DependentUpon>
     </Compile>
