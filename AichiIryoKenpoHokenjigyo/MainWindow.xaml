@@ -5,11 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AichiIryoKenpoHokenjigyo"
         mc:Ignorable="d"
-        Title="MainWindow" Height="125" Width="509"
+        Title="MainWindow" Height="124" Width="687"
         Loaded="Window_Loaded"  
         >
     <Grid>
         <Button Click="Button_Click" Content="事業所設定" HorizontalAlignment="Left" Margin="22,22,0,0" VerticalAlignment="Top" Width="163" Height="52"/>
+        <Button Click="Button_Click_1" Content="test" HorizontalAlignment="Left" Margin="190,22,0,0" VerticalAlignment="Top" Width="163" Height="52"/>
+        <Button Click="Button_Click_2" Content="Button" HorizontalAlignment="Left" Margin="422,22,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox x:Name="bb" HorizontalAlignment="Left" Height="23" Margin="523,22,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="aa" HorizontalAlignment="Left" Height="23" Margin="523,50,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="762,32,-91,-100" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

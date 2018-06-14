@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+using AichiIryoKenpoHokenjigyo.Model;
+
 namespace AichiIryoKenpoHokenjigyo
 {
     /// <summary>
@@ -26,7 +28,21 @@ namespace AichiIryoKenpoHokenjigyo
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Test");
+            var db = new Kiisdbcontext();
+
+            var q = db.CompanyInfomationTable;
+
+            CompanyInfomationTable t = new CompanyInfomationTable()
+            {
+                Kigou = 1,
+                JigyonusiName = "愛知県医療健康保険組合",
+                CompanyName = "愛知県医療健康保険組合",
+                PostalCode = "4600011"
+            };
+
+            db.CompanyInfomationTable.Add(t);
+            db.SaveChanges();
+
         }
     }
 }
