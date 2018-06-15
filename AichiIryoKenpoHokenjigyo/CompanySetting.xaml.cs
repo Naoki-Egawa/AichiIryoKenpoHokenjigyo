@@ -32,7 +32,7 @@ namespace AichiIryoKenpoHokenjigyo
 
             var q = db.CompanyInfomationTable;
 
-            CompanyInfomationTable t = new CompanyInfomationTable()
+            CompanyInfomation t = new CompanyInfomation()
             {
                 Kigou = 1,
                 JigyonusiName = "愛知県医療健康保険組合",

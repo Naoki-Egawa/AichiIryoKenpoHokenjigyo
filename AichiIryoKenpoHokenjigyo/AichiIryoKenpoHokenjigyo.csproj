@@ -29,7 +29,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>5</ApplicationRevision>
+    <ApplicationRevision>6</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -118,6 +118,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Class\FormatKanyusyaData.cs" />
+    <Compile Include="Class\GetCSVData.cs" />
     <Compile Include="Class\TekiyoMasterCSVsoeji.cs" />
     <Compile Include="CompanySetting.xaml.cs">
       <DependentUpon>CompanySetting.xaml</DependentUpon>
@@ -128,8 +130,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\CompanyInfomationTable.cs" />
+    <Compile Include="Model\CompanyInfomation.cs" />
     <Compile Include="Model\Kiisdbcontext.cs" />
+    <Compile Include="Model\TekiyoMasterData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
