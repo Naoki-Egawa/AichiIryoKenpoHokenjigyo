@@ -17,6 +17,8 @@ using System.Data;
 using System.Data.OleDb;
 using AichiIryoKenpoHokenjigyo.Class;
 using System.IO;
+using System;
+using Newtonsoft.Json;
 
 namespace AichiIryoKenpoHokenjigyo
 {
@@ -42,7 +44,7 @@ namespace AichiIryoKenpoHokenjigyo
         {
             var sqlConnectionSb = new SQLiteConnectionStringBuilder { DataSource = "denco.db" };
 
-            var filePass = @"D:\tekiyo.csv";
+            var filePass = @"D:\tekiyo-dammy-data.csv";
 
             await Task.Run(() =>
            {
@@ -97,7 +99,8 @@ namespace AichiIryoKenpoHokenjigyo
                 //    MessageBox.Show(item.ItemArray[5].ToString());
                 //}
 
-                MessageBox.Show(a.ItemArray[(int)TekiyoMasterCSVsoeji.TekiyoMasterCSVsoejiEnum.個人住所１].ToString());
+                MessageBox.Show(a.ItemArray[(int)TekiyoMasterCSVsoeji.TekiyoMasterCSVsoejiEnum.氏名_漢字].ToString() +
+                    a.ItemArray[(int)TekiyoMasterCSVsoeji.TekiyoMasterCSVsoejiEnum.個人住所１].ToString());
             }
             catch (InvalidOperationException ex)
             {

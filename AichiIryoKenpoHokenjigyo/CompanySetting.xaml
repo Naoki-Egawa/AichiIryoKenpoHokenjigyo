@@ -5,21 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AichiIryoKenpoHokenjigyo"
         mc:Ignorable="d"
-        Title="CompanySetting" Height="600" Width="435" Background="#FFF7F7F7">
+        Title="CompanySetting" Height="600" Width="435" Background="#FFF7F7F7"
+        Loaded="Window_Loaded">
 
     <Grid>
         <Label Content="事業所記号（健康保険）" HorizontalAlignment="Left" VerticalAlignment="Top" Width="148" Height="26" Foreground="#FF919191" Margin="23,141,0,0"/>
-        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="376" Margin="23,167,0,0"/>
+        <TextBox x:Name="kigou" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="376" Margin="23,167,0,0"/>
         <Label Content="事業所名称" HorizontalAlignment="Left" VerticalAlignment="Top" Width="148" Height="26" Foreground="#FF919191" Margin="23,192,0,0"/>
-        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="376" Margin="23,218,0,0"/>
+        <TextBox x:Name="jigyosyoname"  HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="376" Margin="23,218,0,0"/>
         <Label Content="事業主氏名（漢字）" HorizontalAlignment="Left" VerticalAlignment="Top" Width="148" Height="26" Foreground="#FF919191" Margin="23,244,0,0"/>
-        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="376" Margin="23,270,0,0"/>
+        <TextBox x:Name="jigyonusiname" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="376" Margin="23,270,0,0"/>
         <Label Content="郵便番号" HorizontalAlignment="Left" VerticalAlignment="Top" Width="148" Height="26" Foreground="#FF919191" Margin="23,296,0,0"/>
-        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="376" Margin="23,322,0,0"/>
+        <TextBox x:Name="postalcode" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="376" Margin="23,322,0,0"/>
         <Label Content="所在地" HorizontalAlignment="Left" VerticalAlignment="Top" Width="148" Height="26" Foreground="#FF919191" Margin="23,350,0,0"/>
-        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="376" Margin="23,376,0,0"/>
+        <TextBox x:Name="address" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="376" Margin="23,376,0,0"/>
         <Label Content="電話番号" HorizontalAlignment="Left" VerticalAlignment="Top" Width="148" Height="26" Foreground="#FF919191" Margin="23,402,0,0"/>
-        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="376" Margin="23,428,0,0"/>
+        <TextBox x:Name="tel" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="376" Margin="23,428,0,0"/>
         <Button Click="Button_Click" Content="保存する" HorizontalAlignment="Left" Margin="72,496,0,0" VerticalAlignment="Top" Width="276" Background="White" Height="31" Foreground="#FF343434" BorderBrush="#FF4C80CB"/>
         <Label Content="事業所基本情報の設定" HorizontalAlignment="Left" VerticalAlignment="Top" Width="216" Height="41" Foreground="#FF919191" Margin="23,61,0,0" FontWeight="Bold" FontSize="16"/>
         <Label Content="健康保険の記号や事業所名称等を設定します" HorizontalAlignment="Left" VerticalAlignment="Top" Width="284" Height="31" Foreground="#FF919191" Margin="23,96,0,0"/>

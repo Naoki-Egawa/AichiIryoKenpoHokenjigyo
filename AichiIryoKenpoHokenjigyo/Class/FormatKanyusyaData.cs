@@ -9,21 +9,9 @@ using AichiIryoKenpoHokenjigyo.Model;
 
 namespace AichiIryoKenpoHokenjigyo.Class
 {
+
     public class FormatKanyusyaData
     {
-        
-        //public TekiyoMasterData getKanyusyaData(string kojinSikibetuNo)
-        //{
-        //    try
-        //    {
-                 
-        //    }
-        //    catch (Exception)
-        //    {
 
-        //        throw;
-        //    }
-
-        //}
     }
 }
