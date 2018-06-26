@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SQLite;
 using System.Data.Entity;
+using System.Data.SQLite.EF6;
 
 
 namespace AichiIryoKenpoHokenjigyo.Model
@@ -18,10 +19,10 @@ namespace AichiIryoKenpoHokenjigyo.Model
 
         public DbSet<CompanyInfomationTable> CompanyInfomationTable { get; set; }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            //var sqliteConnectionInitializer = new SqliteCreateDatabaseIfNotExists<MusicGameData>(modelBuilder);
-            //Database.SetInitializer(sqliteConnectionInitializer);
-        }
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    var sqliteConnectionInitializer = new SqliteCreateDatabaseIfNotExists<Kiisdbcontext>(modelBuilder);
+        //    Database.SetInitializer(sqliteConnectionInitializer);
+        //}
     }
 }

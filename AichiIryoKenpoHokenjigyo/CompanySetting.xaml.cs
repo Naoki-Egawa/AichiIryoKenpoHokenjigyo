@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using AichiIryoKenpoHokenjigyo.Model;
 
+using AichiIryoKenpoHokenjigyo.Model;
+
 namespace AichiIryoKenpoHokenjigyo
 {
     /// <summary>
@@ -27,32 +29,22 @@ namespace AichiIryoKenpoHokenjigyo
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            var db = new Kiisdbcontext();
 
-            try
+            var q = db.CompanyInfomationTable;
+
+            CompanyInfomationTable t = new CompanyInfomationTable()
             {
+                Kigou = 1,
+                JigyonusiName = "愛知県医療健康保険組合",
+                CompanyName = "愛知県医療健康保険組合",
+                PostalCode = "4600011"
+            };
 
-                var db = new Kiisdbcontext();
-                var q = db.CompanyInfomationTable;
+            db.CompanyInfomationTable.Add(t);
+            db.SaveChanges();
 
-                CompanyInfomationTable t = new CompanyInfomationTable()
-                {
-                    Kigou = 1,
-                    CompanyName = "愛知県医療健康保険組合"
-                };
-
-                q.Add(t);
-
-                db.SaveChanges();
-
-                MessageBox.Show("Test");
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
         }
-
     }
 
 }
