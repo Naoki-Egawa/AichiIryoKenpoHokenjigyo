@@ -113,6 +113,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="HojokinSinseiTouroku.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -121,11 +125,16 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Class\DateTimeOperation.cs" />
     <Compile Include="Class\FormatKanyusyaData.cs" />
     <Compile Include="Class\GetCSVData.cs" />
+    <Compile Include="Class\jigyo-kubun-code.cs" />
     <Compile Include="Class\TekiyoMasterCSVsoeji.cs" />
     <Compile Include="CompanySetting.xaml.cs">
       <DependentUpon>CompanySetting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HojokinSinseiTouroku.xaml.cs">
+      <DependentUpon>HojokinSinseiTouroku.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -134,6 +143,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\CompanyInfomation.cs" />
+    <Compile Include="Model\HojokinSinseiMaster.cs" />
     <Compile Include="Model\Kiisdbcontext.cs" />
     <Compile Include="Model\TekiyoMasterData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
