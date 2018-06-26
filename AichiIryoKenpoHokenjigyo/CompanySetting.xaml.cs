@@ -1,19 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using AichiIryoKenpoHokenjigyo.Class;
+using AichiIryoKenpoHokenjigyo.Model;
+using Newtonsoft.Json;
+using System;
+using System.Data;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using AichiIryoKenpoHokenjigyo.Model;
-
-using AichiIryoKenpoHokenjigyo.Model;
+using System.IO;
+using System.Collections.Generic;
 
 namespace AichiIryoKenpoHokenjigyo
 {
@@ -22,29 +15,72 @@ namespace AichiIryoKenpoHokenjigyo
     /// </summary>
     public partial class CompanySetting : Window
     {
+
         public CompanySetting()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            var db = new Kiisdbcontext();
 
-            var q = db.CompanyInfomationTable;
+            CompanyInfomation[] a = new CompanyInfomation[1];
 
-            CompanyInfomationTable t = new CompanyInfomationTable()
+            a[0] = new CompanyInfomation
             {
-                Kigou = 1,
-                JigyonusiName = "愛知県医療健康保険組合",
-                CompanyName = "愛知県医療健康保険組合",
-                PostalCode = "4600011"
+                Kigou = int.Parse(kigou.Text),
+                JigyonusiName = jigyonusiname.Text,
+                CompanyName = jigyosyoname.Text,
+                PostalCode = postalcode.Text,
+                Address = address.Text,
+                Tel = tel.Text,
             };
+            
+            //シリアライズ
+            string json = JsonConvert.SerializeObject(a, Formatting.Indented);
+            //シリアライズ化したものを表示
+            Console.WriteLine(json);
 
-            db.CompanyInfomationTable.Add(t);
-            db.SaveChanges();
+            string fullFileName = @"D:\compamy-master.json";
+            
+            System.IO.StreamWriter sw = new System.IO.StreamWriter(fullFileName, false, System.Text.Encoding.GetEncoding("shift_jis"));
+            sw.Write(json);
+            sw.Close();
+
+            MessageBox.Show("事業所基本情報を保存しました。");
+
+            this.Close();
 
         }
-    }
 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                // コレクションのデシリアライズ
+                var text = File.ReadAllText(@"D:\compamy-master.json", System.Text.Encoding.GetEncoding("shift_jis"));
+                var list = JsonConvert.DeserializeObject<List<CompanyInfomation>>(text);
+
+                if(list.Count <= 0)
+                {
+                    MessageBox.Show("事業所基本情報の登録がありません。新規で登録を行ってください。","しんせいくん");
+                    return;
+                }
+
+                kigou.Text = list[0].Kigou.ToString();
+                jigyosyoname.Text = list[0].CompanyName.ToString();
+                jigyonusiname.Text = list[0].JigyonusiName.ToString();
+                postalcode.Text = list[0].PostalCode.ToString();
+                address.Text = list[0].Address.ToString();
+                tel.Text = list[0].Tel.ToString();
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("事業所基本情報の登録がありません。新規で登録を行ってください。", "しんせいくん");
+                return;
+            }
+        }
+    }
 }

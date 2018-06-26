@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AichiIryoKenpoHokenjigyo"
         mc:Ignorable="d"
-        Title="MainWindow" Height="124" Width="687"
+        Title="MainWindow" Height="179" Width="687"
         Loaded="Window_Loaded"  
         >
     <Grid>
@@ -15,6 +15,7 @@
         <TextBox x:Name="bb" HorizontalAlignment="Left" Height="23" Margin="523,22,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="aa" HorizontalAlignment="Left" Height="23" Margin="523,50,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Left" Margin="762,32,-91,-100" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <Button x:Name="sinsei" Click="sinsei_Click" Content="事業所設定" HorizontalAlignment="Left" Margin="22,79,0,0" VerticalAlignment="Top" Width="163" Height="52"/>
 
     </Grid>
 </Window>

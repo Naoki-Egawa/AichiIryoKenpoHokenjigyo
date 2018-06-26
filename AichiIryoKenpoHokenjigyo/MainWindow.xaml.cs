@@ -15,7 +15,10 @@ using System.Windows.Shapes;
 using System.Data.SQLite;
 using System.Data;
 using System.Data.OleDb;
+using AichiIryoKenpoHokenjigyo.Class;
 using System.IO;
+using System;
+using Newtonsoft.Json;
 
 namespace AichiIryoKenpoHokenjigyo
 {
@@ -39,14 +42,15 @@ namespace AichiIryoKenpoHokenjigyo
 
         private async void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            var sqlConnectionSb = new SQLiteConnectionStringBuilder { DataSource = "denco.db" };
+            //var sqlConnectionSb = new SQLiteConnectionStringBuilder { DataSource = "denco.db" };
 
-            var filePass = @"D:\tekiyo.csv";
+            var filePass = @"D:\tekiyo-dammy-data.csv";
 
             await Task.Run(() =>
            {
 
-               TekiyoMaster = GetDataTableFromCSV(filePass, false);
+               TekiyoMaster = GetCSVData.GetDataTableFromCSV(filePass, false);
+
            });
 
         }
@@ -55,7 +59,7 @@ namespace AichiIryoKenpoHokenjigyo
         {
             var filepass = @"D:\c.csv";
 
-            var dt = GetDataTableFromCSV(filepass, false);
+            var dt = GetCSVData.GetDataTableFromCSV(filepass, false);
 
             var kensakuNo = "";
 
@@ -75,26 +79,7 @@ namespace AichiIryoKenpoHokenjigyo
             }
             MessageBox.Show("Test");
         }
-
-        public static DataTable GetDataTableFromCSV(String strFilePath, Boolean isInHeader = true)
-        {
-            DataTable dt = new DataTable();
-            String strInHeader = isInHeader ? "YES" : "NO";                // ヘッダー設定
-            String strCon = "Provider=Microsoft.ACE.OLEDB.12.0;"      // プロバイダ設定
-                                                                      //= "Provider=Microsoft.Jet.OLEDB.4.0;"     // Jetでやる場合
-                                + "Data Source=" + System.IO.Path.GetDirectoryName(strFilePath) + "\\; "          // ソースファイル指定
-                                + "Extended Properties=\"Text;HDR=" + strInHeader + ";FMT=Delimited\"";
-            OleDbConnection con = new OleDbConnection(strCon);
-            String strCmd = "SELECT * FROM [" + System.IO.Path.GetFileName(strFilePath) + "]";
-
-            // 読み込み
-            OleDbCommand cmd = new OleDbCommand(strCmd, con);
-            OleDbDataAdapter adp = new OleDbDataAdapter(cmd);
-            adp.Fill(dt);
-
-            return dt;
-        }
-
+        
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             try
@@ -105,6 +90,7 @@ namespace AichiIryoKenpoHokenjigyo
 
                 int soeji = 3;
 
+
                 var a = TekiyoMaster.AsEnumerable().First(x => x.ItemArray[2].ToString().Trim() == kigou & x.ItemArray[soeji].ToString().Trim() == bagnou);
 
                 //foreach (var item in TekiyoMaster.AsEnumerable())
@@ -112,14 +98,21 @@ namespace AichiIryoKenpoHokenjigyo
 
                 //    MessageBox.Show(item.ItemArray[5].ToString());
                 //}
-                
-                MessageBox.Show(a.ItemArray[5].ToString());
+
+                MessageBox.Show(a.ItemArray[(int)TekiyoMasterCSVsoeji.TekiyoMasterCSVsoejiEnum.氏名_漢字].ToString() +
+                    a.ItemArray[(int)TekiyoMasterCSVsoeji.TekiyoMasterCSVsoejiEnum.個人住所１].ToString());
             }
             catch (InvalidOperationException ex)
             {
 
                 MessageBox.Show("見つかりませんでした。");
             }
+        }
+
+        private void sinsei_Click(object sender, RoutedEventArgs e)
+        {
+            var f = new HojokinSinseiTouroku();
+            f.ShowDialog();
         }
     }
 }
