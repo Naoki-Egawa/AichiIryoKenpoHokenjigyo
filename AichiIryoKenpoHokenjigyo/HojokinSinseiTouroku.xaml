@@ -33,7 +33,7 @@
         <Label Content="資格喪失年月日" HorizontalAlignment="Left" Margin="722,74,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.483,1.036"/>
         <Label Content="実施年月日" HorizontalAlignment="Left" Margin="13,132,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.483,1.036"/>
         <Button Click="btAdd_Click" x:Name="btAdd" Content="補助金申請者として登録する" HorizontalAlignment="Left" Margin="202,144,0,0" VerticalAlignment="Top" Width="223" Height="44"/>
-        <DataGrid x:Name="dgv" Margin="10,221,12,59" ItemsSource="{Binding TekiyoMaster}"/>
+        <DataGrid x:Name="dgv" Margin="10,221,12,59" IsReadOnly="True"/>
         <Label Content="補助金申請として登録されているデータ" HorizontalAlignment="Left" Margin="10,188,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.483,1.036" Width="259"/>
         <Button Click="btKanyusyaHyouji_Click" x:Name="btKanyusyaHyouji" Content="対象者データを表示する" HorizontalAlignment="Left" Margin="530,22,0,0" VerticalAlignment="Top" Width="170" Height="44"/>
         <DatePicker x:Name="jissiDate" HorizontalAlignment="Left" Margin="13,165,0,0" VerticalAlignment="Top" Width="183"/>

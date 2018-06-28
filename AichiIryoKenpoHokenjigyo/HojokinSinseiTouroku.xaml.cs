@@ -7,6 +7,10 @@ using System.Windows;
 using System.Collections.Generic;
 using AichiIryoKenpoHokenjigyo.Model;
 using AichiIryoKenpoHokenjigyo.Class;
+using System.Data.SQLite;
+using System.Collections.ObjectModel;
+using System.Data.Linq;
+using System.Data.Linq.Mapping;
 
 namespace AichiIryoKenpoHokenjigyo
 {
@@ -18,7 +22,8 @@ namespace AichiIryoKenpoHokenjigyo
 
         public DataTable TekiyoMaster { get; set; }
 
-        List<HojokinSinseiMaster> hojokinSinseiMasters = new List<HojokinSinseiMaster>();
+        List<HojokinSinseiMaster> hojokinSinseiMasters;
+
 
         public HojokinSinseiTouroku()
         {
@@ -83,24 +88,33 @@ namespace AichiIryoKenpoHokenjigyo
             try
             {
 
-
-                HojokinSinseiMaster t = new HojokinSinseiMaster()
+                // 接続
+                using (var conn = new SQLiteConnection("Data Source=denco.db"))
                 {
-                    記号 = int.Parse(kigo.Text),
-                    番号 = int.Parse(bango.Text),
-                    対象者氏名_漢字 = name.Text,
-                    実施年月日 = jissiDate.Text.GetKiisGRDatetime().TypeofDatetime,
-                    続柄コード = zokugara.Text,
-                    補助金区分コード = jigyokubun.Text,
-                    個人ID = kojinid.Text,
-                    実施年度 = year.Text,
+                    conn.Open();
 
-                };
+                    // データを追加する
+                    using (DataContext context = new DataContext(conn))
+                    {
+                        // 対象のテーブルオブジェクトを取得
+                        var table = context.GetTable<TestTable>();
+                        // データ作成
+                        var t2 = new TestTable()
+                        {
+                            ID = int.Parse(kigo.Text),
 
-                hojokinSinseiMasters.Add(t);
+                            Name = "っっｊ",
+                        };
 
-                dgv.ItemsSource = hojokinSinseiMasters;
+                        // データ追加
+                        table.InsertOnSubmit(t2);
+                        // DBの変更を確定
+                        context.SubmitChanges();
+                    }
 
+                    conn.Close();
+                }
+               
 
             }
             catch (Exception)
@@ -109,5 +123,16 @@ namespace AichiIryoKenpoHokenjigyo
                 throw;
             }
         }
+
+
+    }
+
+    [Table(Name = "TestTable")]
+    public class TestTable
+    {
+        [Column(Name = "ID", IsPrimaryKey = true)]
+        public int ID { get; set; }
+        [Column(Name = "Name", CanBeNull = false)]
+        public string Name { get; set; }
     }
 }

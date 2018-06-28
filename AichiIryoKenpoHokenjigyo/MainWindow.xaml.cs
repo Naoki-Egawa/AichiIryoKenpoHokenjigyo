@@ -42,8 +42,9 @@ namespace AichiIryoKenpoHokenjigyo
 
         private async void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //var sqlConnectionSb = new SQLiteConnectionStringBuilder { DataSource = "denco.db" };
+            var sqlConnectionSb = new SQLiteConnectionStringBuilder { DataSource = "denco.db" };
 
+            
             var filePass = @"D:\tekiyo-dammy-data.csv";
 
             await Task.Run(() =>
